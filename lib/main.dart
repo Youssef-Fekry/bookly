@@ -1,4 +1,5 @@
 import 'package:bokly_app/Features/splash/peresentation/views/splash_view.dart';
+import 'package:bokly_app/constans.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 
@@ -12,8 +13,12 @@ class BooklyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
-      home: SplashView(),
+    return GetMaterialApp(
+      theme: ThemeData().copyWith(
+        scaffoldBackgroundColor: kPrimaryColor,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: const SplashView(),
     );
   }
 }
