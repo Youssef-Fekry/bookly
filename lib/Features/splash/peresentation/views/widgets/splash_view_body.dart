@@ -1,7 +1,10 @@
+import 'package:bokly_app/Features/home/presentation/views/home_view.dart';
+import 'package:bokly_app/constans.dart';
 import 'package:bokly_app/core/utils/assetsdata.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/route_manager.dart';
 import 'package:lottie/lottie.dart';
 
 import 'sliding_text.dart';
@@ -21,6 +24,31 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     super.initState();
+    initSlidingAnimation();
+
+    navigationToHomeView();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Flexible(child: Image.asset(AssetsData.mainLogo)),
+        Flexible(
+          child: Lottie.network(
+            'https://lottie.host/2875bcb5-b647-41e2-a547-d725ef644d90/zk5kLwomf4.json',
+          ),
+        ),
+        Flexible(
+          child: SlidingText(slidingAnimation: slidingAnimation),
+        ),
+      ],
+    );
+  }
+
+  void initSlidingAnimation() {
     animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 1),
@@ -31,29 +59,15 @@ class _SplashViewBodyState extends State<SplashViewBody>
             .animate(animationController);
 
     animationController.forward();
-
-    void dispose() {
-      super.dispose();
-      animationController.dispose();
-    }
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Flexible(child: Image.asset(AssetsData.MainLogo)),
-        Flexible(
-          child: Lottie.network(
-            'https://lottie.host/2875bcb5-b647-41e2-a547-d725ef644d90/zk5kLwomf4.json',
-          ),
-        ),
-        Flexible(
-          child: SlidingText(slidingAnimation: slidingAnimation),
-        ),
-      ],
+  void navigationToHomeView() {
+    Future.delayed(
+      const Duration(seconds: 3),
+      () {
+        Get.to(() => const HomeView(),
+            transition: Transition.fade, duration: kTransitionDuration);
+      },
     );
   }
 }
