@@ -1,10 +1,9 @@
-import 'package:bokly_app/Features/home/presentation/views/home_view.dart';
-import 'package:bokly_app/constans.dart';
+import 'package:bokly_app/core/utils/app_router.dart';
 import 'package:bokly_app/core/utils/assetsdata.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/route_manager.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
 import 'sliding_text.dart';
@@ -63,10 +62,13 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigationToHomeView() {
     Future.delayed(
-      const Duration(seconds: 3),
+      const Duration(seconds: 5),
       () {
-        Get.to(() => const HomeView(),
-            transition: Transition.fade, duration: kTransitionDuration);
+        // Get.to(() => const HomeView(),
+        //
+        //   transition: Transition.fade, duration: kTransitionDuration);
+
+        GoRouter.of(context).push(AppRouter.kHomeView);
       },
     );
   }
