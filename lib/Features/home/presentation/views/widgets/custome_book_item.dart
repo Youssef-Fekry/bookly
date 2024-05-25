@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/assetsdata.dart';
 
-class FeaturedListViewitem extends StatelessWidget {
-  const FeaturedListViewitem({super.key});
+class CustomeBookItem extends StatelessWidget {
+  const CustomeBookItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class FeaturedListViewitem extends StatelessWidget {
       child: Container(
         height: 100,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(18),
             image: const DecorationImage(
               fit: BoxFit.fill,
               image: AssetImage(AssetsData.testImage),
