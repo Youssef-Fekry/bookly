@@ -32,8 +32,10 @@ class BookRating extends StatelessWidget {
             '(456)',
             style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w600),
           ),
-        )
+        ),
       ],
     );
   }
 }
+
+
