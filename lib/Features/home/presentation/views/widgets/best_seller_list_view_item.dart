@@ -7,8 +7,8 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../constans.dart';
 
-class BestsellerITem extends StatelessWidget {
-  const BestsellerITem({super.key});
+class BookListViewItem extends StatelessWidget {
+  const BookListViewItem({super.key});
 
   @override
   Widget build(BuildContext context) {

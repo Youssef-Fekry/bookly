@@ -1,4 +1,7 @@
+import 'package:bokly_app/Features/home/presentation/views/widgets/best_seller_list_view_item.dart';
 import 'package:bokly_app/Features/search/presentation/widgets/customsearch.dart';
+import 'package:bokly_app/Features/search/presentation/widgets/resultsearch.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -11,6 +14,7 @@ class SearchViewBody extends StatelessWidget {
       child: Column(
         children: [
           CustomeSearchTextFiled(),
+          Expanded(child: ResultSearchView()),
         ],
       ),
     );
