@@ -12,13 +12,13 @@ abstract class HomeRemoteDataSource {
 class HomeLocalDataSourceImp extends HomeRemoteDataSource {
   @override
   List<BookEntity> fetchFeaturedBooks() {
-    // TODO: implement fetchFeaturedBooks
+    
     throw UnimplementedError();
   }
 
   @override
   List<BookEntity> fetchNewstBooks() {
-    // TODO: implement fetchNewstBooks
+
     throw UnimplementedError();
   }
 }
