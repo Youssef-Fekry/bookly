@@ -1,5 +1,7 @@
 import 'package:bokly_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:bokly_app/Features/home/domain/entities/book_entity.dart';
+import 'package:bokly_app/constans.dart';
+import 'package:bokly_app/core/functions/save_data_box.dart';
 import 'package:bokly_app/core/utils/api_service.dart';
 
 abstract class HomeRemoteDataSource {
@@ -18,17 +20,17 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
         endpoints: 'volumes?Filtering=free-ebooks&q=secience');
 
     List<BookEntity> books = getbooklist(data);
-
+    saveBoxData(books, kFeaturedBox);
     return books;
   }
 
   @override
-  Future<List<BookEntity>> fetchNewstBooks() async{
+  Future<List<BookEntity>> fetchNewstBooks() async {
     var data = await apiService.get(
         endpoints: 'volumes?Filtering=free-ebooks&q=secience&sorting=newest');
 
     List<BookEntity> books = getbooklist(data);
-
+    saveBoxData(books, kNewestBox);
     return books;
   }
 }
