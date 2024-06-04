@@ -2,12 +2,12 @@ import 'package:bokly_app/Features/home/domain/entities/book_entity.dart';
 import 'package:bokly_app/constans.dart';
 import 'package:hive/hive.dart';
 
-abstract class HomeRemoteDataSource {
+abstract class HomeLocalDataSource {
   List<BookEntity> fetchFeaturedBooks();
   List<BookEntity> fetchNewstBooks();
 }
 
-class HomeLocalDataSourceImp extends HomeRemoteDataSource {
+class HomeLocalDataSourceImp extends HomeLocalDataSource {
   @override
   List<BookEntity> fetchFeaturedBooks() {
     var box = Hive.box<BookEntity>(kFeaturedBox);
