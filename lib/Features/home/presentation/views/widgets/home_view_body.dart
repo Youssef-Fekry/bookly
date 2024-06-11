@@ -20,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomeAppBar(),
-                FearuredBooksListView(),
+                FeatchFeaturesBooksBLocProvider(),
                 SizedBox(
                   height: 50,
                 ),
@@ -45,6 +45,21 @@ class HomeViewBody extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+}
+
+class FeatchFeaturesBooksBLocProvider extends StatelessWidget {
+  const FeatchFeaturesBooksBLocProvider({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SubjectBloc, SubjectState>(
+      builder: (context, state) {
+        return const FeaturedBooksListView();
+      },
     );
   }
 }
