@@ -5,7 +5,7 @@ import 'package:bokly_app/core/functions/save_data_box.dart';
 import 'package:bokly_app/core/utils/api_service.dart';
 
 abstract class HomeRemoteDataSource {
-  Future<List<BookEntity>> fetchFeaturedBooks();
+  Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber = 0});
 
   Future<List<BookEntity>> fetchNewstBooks();
 }
@@ -15,9 +15,10 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
 
   HomeRemoteDataSourceImp(this.apiService);
   @override
-  Future<List<BookEntity>> fetchFeaturedBooks() async {
+  Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber = 0}) async {
     var data = await apiService.get(
-        endpoints: 'volumes?Filtering=free-ebooks&q=secience');
+        endpoints:
+            'volumes?Filtering=free-ebooks&q=secience&startIndex=${pageNumber * 10}');
 
     List<BookEntity> books = getbooklist(data);
     saveBoxData(books, kFeaturedBox);
